@@ -151,7 +151,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		if (item.name === "Wormadamite" && (pokemon.species.name === "Wormadam" || pokemon.species.name === "Wormadam-Trash")) return null;
 		if (pokemon.species.name === "Pichu") return null;
 		if (pokemon.species.name.startsWith('Floette')) return null;
-		if (item.megaEvolves !== pokemon.baseSpecies.name || item.megaStone === pokemon.species.name) {
+		if (item.megaEvolves !== pokemon.species.name || item.megaStone === pokemon.species.name) {
 			return null;
 		}
 		return item.megaStone;
