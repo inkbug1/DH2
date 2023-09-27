@@ -48,8 +48,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		) {
 			return altForme.name;
 		}
-		if (item.name === "Wormadamite" && (pokemon.species.name === "Wormadam" || pokemon.species.name === "Wormadam-Trash")) return null;
-		if (item.name === "Hoopanite" && (pokemon.species.name === "Hoopa-Unbound")) return null;
+		if (item.name === "Wormadamite") {
+			if (pokemon.species.name === "Wormadam-Sandy") {
+				 return "Wormadam-Sandy-Mega";
+			} else return null;
+		}
+		if (item.name === "Hoopanite" && pokemon.species.name === "Hoopa-Unbound") return null;
 		if (item.megaEvolves !== pokemon.species.name || item.megaStone === pokemon.species.name) return null;
 		return item.megaStone;
 	},
