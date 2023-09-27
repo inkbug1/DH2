@@ -3,9 +3,7 @@
 // tiering information
 const ag = ["gengarmega", "rayquazamega", "zacian", "zaciancrowned", "calyrexshadow"];
 const uber = ["butterfreemega", "cinderacemega", "rillaboommega", "dragapultmega", "alakazammega", "blastoisemega", "blazikenmega", "cinderace", "darkrai", "darmanitangalar", "deoxysattack", "deoxys", "dialga", "dracovish", "dragapult", "lucariomega", "eternatus", "giratina", "giratinaorigin", "groudon", "groudonprimal", "hooh", "kangaskhanmega", "kyogre", "kyogreprimal", "kyurem", "kyuremblack", "kyuremwhite", "landorus", "lucariomega", "lugia", "lunala", "magearna", "magearnaoriginal", "marshadow", "metagrossmega", "mewtwo", "mewtwomegax", "mewtwomegay", "naganadel", "necrozmadawnwings", "necrozmaduskmane", "necrozmaultra", "palkia", "pheromosa", "rayquaza", "reshiram", "salamencemega", "shayminsky", "solgaleo", "spectrier", "urshifu", "xerneas", "yveltal", "zamazenta", "zamazentacrowned", "zekrom", "zygarde", "zygardecomplete", "calyrexice", "arceus", "arceusfire", "arceuswater", "arceuselectric", "arceusgrass", "arceusice", "arceusfighting", "arceuspoison", "arceusground", "arceusflying", "arceuspsychic", "arceusbug", "arceusrock", "arceusghost", "arceusdragon", "arceusdark", "arceussteel", "arceusfairy", "genesect", "genesectburn", "genesectchill", "genesectdouse", "genesectshock"];
-const newest = ["grapploctmega", "lickilickymega", "tsareenamega", "snorlaxmega", "swalotmega", "wailordmega"];
 const aprilfools = ["floetteeternalmega", "meltanmega", "pichuspikyearedmega", "porygodzmega"];
-const hisui = ["arcaninehisui", "avalugghisui", "basculegion", "basculegionf", "braviaryhisui", "decidueyehisui", "dialgaorigin", "electrodehisui", "enamorus", "enamorustherian", "goodrahisui", "kleavor", "lilliganthisui", "overqwil", "palkiaorigin", "samurotthisui", "sneasler", "typhlosionhisui", "ursaluna", "wyrdeer", "zoroarkhisui"]; // only fully-evolved Pokémon from Legends: Arceus
 const tourbanned = ["bisharpmega", "clefablemega", "dodriomega", "empoleonmega", "goodramega", "gourgeistmega", "hydreigonmega", "meowsticfmega", "slowkinggalarmega", "starmiemega", "tapulele", "tornadustherian", "toxtricitylowkeymega", "trevenantmega", "walreinmega"];
 const tier1mega = ["corviknightmega", "dhelmisemega", "mudsdalemega"];
 const tier1 = ["blissey", "clefable", "corviknight", "ferrothorn", "gliscor", "heatran", "landorustherian", "rillaboom", "slowbro", "tapufini", "toxapex"];
@@ -40,7 +38,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 8,
 	teambuilderConfig: {
 		excludeStandardTiers: true,
-		customTiers: ['April Fools', 'Hisui', 'Tourbanned', 'Newest', 'Tier 1 Mega', 'Tier 1', 'Tier 2 Mega', 'Tier 2', 'Tier 3 Mega', 'Tier 3', 'Tier 4 Mega', 'Tier 4', 'Uncommon Mega', 'Uncommon', 'Undecided', 'Underrated'],
+		customTiers: ['April Fools', 'Tourbanned', 'Tier 1 Mega', 'Tier 1', 'Tier 2 Mega', 'Tier 2', 'Tier 3 Mega', 'Tier 3', 'Tier 4 Mega', 'Tier 4', 'Uncommon Mega', 'Uncommon', 'Undecided', 'Underrated'],
 	},
 	// SANDBOX CHANGE: removed init, canMegaEvo(pokemon) and runMegaEvo(pokemon) relative to m4av6
 
@@ -337,7 +335,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.abilityState = {id: ability.id, target: this};
 		if (ability.id && this.battle.gen > 3 &&
 			(!isTransform || oldAbility !== ability.id || this.battle.gen <= 4)) {
-			this.battle.singleEvent('PreStart', ability, this.abilityData, this, source); // only change
+			this.battle.singleEvent('PreStart', ability, this.abilityState, this, source); // only change
 			this.battle.singleEvent('Start', ability, this.abilityState, this, source);
 		}
 		this.abilityOrder = this.battle.abilityOrder++;
@@ -640,312 +638,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			const id = this.toID(this.data.Items[i].megaStone);
 			if (this.modData('FormatsData', id)) this.modData('FormatsData', id).isNonstandard = null;
 		}
-		// some slight changes around here to account for Legends: Arceus, which I am meant to be adding to the sandbox as convenient presets of sorts (:
-		// first adding new moves to old Pokémon
-		const newMoves = (mon: string, moves: string[]) => {
-			for (const move of moves) {
-				this.modData('Learnsets', this.toID(mon)).learnset[this.toID(move)] = ["8M"];
-			}
-		};
-		// these are from Legends: Arceus
-		newMoves("abomasnow", ["iciclecrash"]);
-		newMoves("aipom", ["doubleedge", "mudbomb", "quickattack"]);
-		newMoves("ambipom", ["doubleedge", "mudbomb", "quickattack"]);
-		newMoves("arceus", ["ancientpower", "confusion", "quickattack", "extrasensory", "dazzlinggleam", "dracometeor", "mysticalfire", "steelbeam"]);
-		newMoves("azelf", ["doublehit", "mysticalpower", "powershift"]);
-		newMoves("barboach", ["zenheadbutt"]);
-		newMoves("bastiodon", ["powershift", "steelbeam"]);
-		newMoves("beautifly", ["airslash"]);
-		newMoves("bergmite", ["iceshard"]);
-		newMoves("bibarel", ["bite"]);
-		newMoves("bidoof", ["bite"]);
-		newMoves("blissey", ["babydolleyes", "drainingkiss", "fairywind", "powershift", "tackle"]);
-		newMoves("bonsly", ["headsmash", "irondefense", "tackle"]);
-		newMoves("budew", ["petaldance", "poisonjab", "poisonpowder", "poisonsting"]);
-		newMoves("buneary", ["doubleedge", "drainingkiss"]);
-		newMoves("burmy", ["strugglebug"]);
-		newMoves("carnivine", ["absorb", "leechlife"]);
-		newMoves("chansey", ["babydolleyes", "drainingkiss", "fairywind", "tackle"]);
-		newMoves("chatot", ["airslash", "gust", "hurricane", "powershift", "playrough", "snarl"]);
-		newMoves("cherrim", ["absorb", "doubleedge", "sleeppowder", "stunspore"]);
-		newMoves("cherubi", ["absorb", "doubleedge", "petaldance", "sleeppowder", "stunspore"]);
-		newMoves("chimchar", ["doubleedge", "tackle"]);
-		newMoves("chimecho", ["doubleedge", "extrasensory", "ominouswind"]);
-		newMoves("chingling", ["doubleedge", "extrasensory", "ominouswind", "energyball"]);
-		newMoves("clefable", ["babydolleyes", "doubleedge", "fairywind", "tackle"]);
-		newMoves("clefairy", ["babydolleyes", "doubleedge", "fairywind", "tackle"]);
-		newMoves("cleffa", ["babydolleyes", "calmmind", "doubleedge", "fairywind", "moonblast", "tackle"]);
-		newMoves("cranidos", ["bite", "tackle"]);
-		newMoves("cresselia", ["lunarblessing", "powershift", "recover", "tackle"]);
-		newMoves("croagunk", ["closecombat", "earthpower"]);
-		newMoves("cyndaquil", ["irontail"]);
-		newMoves("darkrai", ["hex", "shadowsneak"]);
-		newMoves("dartrix", ["aerialace", "airslash", "gust", "magicalleaf", "leafstorm", "psychocut"]);
-		newMoves("dewott", ["slash"]);
-		newMoves("drifblim", ["confusion", "extrasensory", "mysticalfire", "powershift"]);
-		newMoves("drifloon", ["confusion", "extrasensory", "mysticalfire"]);
-		newMoves("dusclops", ["absorb", "leechlife", "powershift"]);
-		newMoves("dusknoir", ["absorb", "leechlife", "powershift"]);
-		newMoves("duskull", ["absorb", "leechlife"]);
-		newMoves("dustox", ["extrasensory"]);
-		newMoves("eevee", ["calmmind", "mimic"]);
-		newMoves("electabuzz", ["spark"]);
-		newMoves("electivire", ["spark"]);
-		newMoves("elekid", ["spark"]);
-		newMoves("empoleon", ["doubleedge", "roost", "steelbeam", "wavecrash"]);
-		newMoves("espeon", ["mimic", "rocksmash"]);
-		newMoves("finneon", ["babydolleyes", "bubble", "airslash", "roost", "hydropump"]);
-		newMoves("flareon", ["calmmind", "powershift", "mimic"]);
-		newMoves("gallade", ["focusenergy", "icebeam"]);
-		newMoves("gardevoir", ["aurasphere", "recover", "icebeam"]);
-		newMoves("gastly", ["poisongas"]);
-		newMoves("gastrodon", ["tackle"]);
-		newMoves("gastrodoneast", ["tackle"]);
-		newMoves("gengar", ["poisongas", "powershift"]);
-		newMoves("glaceon", ["calmmind", "mimic", "powdersnow"]);
-		newMoves("glalie", ["iceball"]);
-		newMoves("glameow", ["doubleedge", "nastyplot", "nightslash", "tackle"]);
-		newMoves("gligar", ["mudbomb"]);
-		newMoves("gliscor", ["pinmissile", "spikes", "powershift"]);
-		newMoves("golbat", ["crosspoison"]);
-		newMoves("golduck", ["bubble", "triattack"]);
-		newMoves("goomy", ["acidspray", "hydropump", "shelter"]);
-		newMoves("grotle", ["bulldoze", "leafblade", "sleeppowder"]);
-		newMoves("gyarados", ["focusenergy"]);
-		newMoves("happiny", ["babydolleyes", "calmmind", "doubleedge", "drainingkiss", "fairywind", "softboiled", "tackle"]);
-		newMoves("haunter", ["poisongas"]);
-		newMoves("heatran", ["ember"]);
-		newMoves("heracross", ["slash", "calmmind", "outrage"]);
-		newMoves("hippopotas", ["mudbomb"]);
-		newMoves("hippowdon", ["mudbomb"]);
-		newMoves("honchkrow", ["airslash"]);
-		newMoves("infernape", ["doubleedge", "drainpunch", "ragingfury"]);
-		newMoves("jolteon", ["calmmind", "mimic"]);
-		newMoves("kadabra", ["hypnosis"]);
-		newMoves("kirlia", ["icebeam"]);
-		newMoves("kricketot", ["absorb", "tackle"]);
-		newMoves("kricketune", ["tackle"]);
-		newMoves("landorus", ["bite", "crunch", "sandsearstorm", "tackle", "twister"]);
-		newMoves("leafeon", ["calmmind", "leafage", "mimic"]);
-		newMoves("lickilicky", ["doubleedge", "tackle", "iceball"]);
-		newMoves("lickitung", ["doubleedge", "tackle", "iceball"]);
-		newMoves("lopunny", ["doubleedge", "drainingkiss", "machpunch"]);
-		newMoves("lucario", ["machpunch"]);
-		newMoves("lumineon", ["aerialace", "bubble", "airslash", "roost", "hydropump"]);
-		newMoves("machamp", ["doublehit", "drainpunch", "machpunch", "tackle"]);
-		newMoves("machoke", ["doublehit", "machpunch", "tackle"]);
-		newMoves("machop", ["doublehit", "machpunch", "tackle"]);
-		newMoves("magby", ["poisongas", "tackle"]);
-		newMoves("magmar", ["poisongas", "tackle"]);
-		newMoves("magmortar", ["poisongas", "tackle"]);
-		newMoves("mamoswine", ["babydolleyes"]);
-		newMoves("manaphy", ["bubble", "confusion", "hydropump", "moonblast", "takeheart", "zenheadbutt", "calmmind"]);
-		newMoves("mantine", ["doubleedge", "powershift"]);
-		newMoves("mantyke", ["doubleedge", "roost"]);
-		newMoves("mesprit", ["doublehit", "mysticalpower", "recover"]);
-		newMoves("mimejr", ["irondefense", "zenheadbutt"]);
-		newMoves("misdreavus", ["extrasensory", "hypnosis"]);
-		newMoves("mismagius", ["extrasensory", "hypnosis"]);
-		newMoves("monferno", ["doubleedge"]);
-		newMoves("mrmime", ["powershift"]);
-		newMoves("munchlax", ["gigaimpact", "highhorsepower", "iceball"]);
-		newMoves("murkrow", ["airslash", "nightslash"]);
-		newMoves("ninetales", ["flamewheel", "nastyplot"]);
-		newMoves("ninetalesalola", ["icefang"]);
-		newMoves("nosepass", ["flashcannon", "powershift"]);
-		newMoves("onix", ["powershift"]);
-		newMoves("oshawott", ["slash"]);
-		newMoves("pachirisu", ["crunch", "thundershock", "playrough"]);
-		newMoves("paras", ["energyball"]);
-		newMoves("petilil", ["leafage", "poisonpowder", "recover", "babydolleyes"]);
-		newMoves("phione", ["bubble", "confusion", "hydropump", "moonblast", "takeheart", "zenheadbutt", "calmmind"]);
-		newMoves("pichu", ["babydolleyes", "quickattack", "spark"]);
-		newMoves("pikachu", ["babydolleyes", "calmmind"]);
-		newMoves("piloswine", ["babydolleyes"]);
-		newMoves("piplup", ["doubleedge", "liquidation", "roost", "tackle"]);
-		newMoves("ponyta", ["doublehit"]);
-		newMoves("porygon", ["spark"]);
-		newMoves("porygon2", ["spark"]);
-		newMoves("porygonz", ["powershift", "spark"]);
-		newMoves("prinplup", ["doubleedge", "liquidation", "roost"]);
-		newMoves("probopass", ["steelbeam", "powershift"]);
-		newMoves("psyduck", ["bubble", "triattack"]);
-		newMoves("purugly", ["doubleedge", "nastyplot", "nightslash", "tackle"]);
-		newMoves("quilava", ["irontail"]);
-		newMoves("raichu", ["babydolleyes", "calmmind"]);
-		newMoves("ralts", ["icebeam"]);
-		newMoves("rampardos", ["powershift", "bite"]);
-		newMoves("rapidash", ["doublehit"]);
-		newMoves("regigigas", ["ancientpower", "powershift", "tackle"]);
-		newMoves("remoraid", ["bubble"]);
-		newMoves("rhydon", ["doubleedge"]);
-		newMoves("rhyhorn", ["doubleedge", "gigaimpact"]);
-		newMoves("rhyperior", ["doubleedge"]);
-		newMoves("riolu", ["aurasphere", "closecombat", "focusenergy"]);
-		newMoves("roselia", ["poisonpowder"]);
-		newMoves("roserade", ["poisonpowder"]);
-		newMoves("rowlet", ["aerialace", "airslash", "gust", "magicalleaf", "leafstorm", "psychocut"]);
-		newMoves("rufflet", ["doubleedge", "quickattack", "twister", "ominouswind"]);
-		newMoves("scizor", ["closecombat", "calmmind"]);
-		newMoves("scyther", ["closecombat", "calmmind"]);
-		newMoves("sealeo", ["liquidation", "babydolleyes"]);
-		newMoves("shaymin", ["leafage", "recover", "sleeppowder", "aerialace", "babydolleyes", "playrough"]);
-		newMoves("shellos", ["tackle"]);
-		newMoves("shieldon", ["steelbeam", "tackle"]);
-		newMoves("snorlax", ["iceball"]);
-		newMoves("snover", ["iciclecrash"]);
-		newMoves("spheal", ["liquidation", "babydolleyes"]);
-		newMoves("spiritomb", ["extrasensory"]);
-		newMoves("stantler", ["confusion", "psyshieldbash"]);
-		newMoves("staraptor", ["airslash", "gust", "focusenergy"]);
-		newMoves("staravia", ["airslash", "gigaimpact", "gust"]);
-		newMoves("starly", ["airslash", "gigaimpact", "gust"]);
-		newMoves("steelix", ["iceball", "powershift"]);
-		newMoves("stunky", ["doubleedge", "poisonjab", "tackle"]);
-		newMoves("sudowoodo", ["tackle"]);
-		newMoves("swinub", ["highhorsepower", "babydolleyes"]);
-		newMoves("sylveon", ["magicalleaf", "mimic", "rocksmash"]);
-		newMoves("tangela", ["acidspray", "doublehit"]);
-		newMoves("tangrowth", ["acidspray", "doublehit"]);
-		newMoves("teddiursa", ["highhorsepower", "focusenergy", "tackle"]);
-		newMoves("tentacool", ["acidarmor"]);
-		newMoves("thundurus", ["powershift", "spark", "tackle", "twister", "wildboltstorm"]);
-		newMoves("togekiss", ["babydolleyes", "calmmind", "moonblast", "tackle"]);
-		newMoves("togepi", ["babydolleyes", "calmmind", "fairywind", "moonblast", "tackle"]);
-		newMoves("togetic", ["airslash", "babydolleyes", "calmmind", "moonblast", "tackle"]);
-		newMoves("tornadus", ["bleakwindstorm", "tackle", "twister"]);
-		newMoves("torterra", ["leafblade", "headlongrush", "sleeppowder"]);
-		newMoves("toxicroak", ["closecombat", "earthpower"]);
-		newMoves("turtwig", ["bulldoze", "leafblade", "sleeppowder"]);
-		newMoves("umbreon", ["calmmind", "mimic", "powershift", "rocksmash"]);
-		newMoves("ursaring", ["highhorsepower", "focusenergy"]);
-		newMoves("uxie", ["doublehit", "hypnosis", "mysticalpower", "powershift"]);
-		newMoves("vaporeon", ["bubble", "calmmind", "mimic"]);
-		newMoves("vespiquen", ["powershift", "recover"]);
-		newMoves("vulpix", ["flamewheel", "nastyplot"]);
-		newMoves("vulpixalola", ["dazzlinggleam", "energyball", "icefang", "nastyplot", "quickattack"]);
-		newMoves("walrein", ["babydolleyes"]);
-		newMoves("whiscash", ["aerialace"]);
-		newMoves("wormadam", ["gust", "silverwind", "magicalleaf"]);
-		newMoves("wormadamsandy", ["gust", "silverwind"]);
-		newMoves("wormadamtrash", ["gust", "silverwind", "steelbeam"]);
-		newMoves("yanma", ["gust"]);
-		newMoves("yanmega", ["crunch"]);
-		newMoves("zubat", ["crosspoison"]);
-
-		// then adding the new Pokémon in the most efficient way possible
-		for (const id in this.dataCache.Pokedex) {
-			const newMon = this.dataCache.Pokedex[id];
-			if (!newMon) continue; // weeding out Pokémon that aren't new
-
-			if (newMon.copyData) {
-				const copyData = this.dataCache.Pokedex[this.toID(newMon.copyData)];
-				if (!newMon.types && copyData.types) newMon.types = copyData.types;
-				if (!newMon.baseStats && copyData.baseStats) newMon.baseStats = copyData.baseStats;
-				if (!newMon.abilities && copyData.abilities) newMon.abilities = copyData.abilities;
-				if (!newMon.num && copyData.num) newMon.num = copyData.num;
-				if (!newMon.genderRatio && copyData.genderRatio) newMon.genderRatio = copyData.genderRatio;
-				if (!newMon.heightm && copyData.heightm) newMon.heightm = copyData.heightm;
-				if (!newMon.weightkg && copyData.weightkg) newMon.weightkg = copyData.weightkg;
-				if (!newMon.color && copyData.color) newMon.color = copyData.color;
-				if (!newMon.eggGroups && copyData.eggGroups) newMon.eggGroups = copyData.eggGroups;
-			} else if (!newMon.name.startsWith('Enamorus')) { continue; }
-
-			if (!this.dataCache.Learnsets[id]) continue; // just in case
-			const movepoolAdditions = ["attract", "endure", "facade", "protect", "rest", "round", "sleeptalk", "snore", "substitute"];
-			for (const move of movepoolAdditions) {
-				this.modData('Learnsets', this.toID(id)).learnset[this.toID(move)] = ["8M"];
-			}
-		}
-	},
-
-	// modifyDamage added for frostbite for Hisuian Zoroark specifically
-	// I do not know restraint when I see this Pokémon I'm sorry
-	// it's not even mod-related what am I doing
-
-	modifyDamage(
-		baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
-	) {
-		const tr = this.trunc;
-		if (!move.type) move.type = '???';
-		const type = move.type;
-
-		baseDamage += 2;
-
-		// multi-target modifier (doubles only)
-		if (move.spreadHit) {
-			const spreadModifier = move.spreadModifier || (this.gameType === 'free-for-all' ? 0.5 : 0.75);
-			this.debug('Spread modifier: ' + spreadModifier);
-			baseDamage = this.modify(baseDamage, spreadModifier);
-		}
-
-		// weather modifier
-		baseDamage = this.runEvent('WeatherModifyDamage', pokemon, target, move, baseDamage);
-
-		// crit - not a modifier
-		const isCrit = target.getMoveHitData(move).crit;
-		if (isCrit) {
-			baseDamage = tr(baseDamage * (move.critModifier || (this.gen >= 6 ? 1.5 : 2)));
-		}
-
-		// random factor - also not a modifier
-		baseDamage = this.randomizer(baseDamage);
-
-		// STAB
-		if (move.forceSTAB || (type !== '???' && pokemon.hasType(type))) {
-			// The "???" type never gets STAB
-			// Not even if you Roost in Gen 4 and somehow manage to use
-			// Struggle in the same turn.
-			// (On second thought, it might be easier to get a MissingNo.)
-			baseDamage = this.modify(baseDamage, move.stab || 1.5);
-		}
-		// types
-		let typeMod = target.runEffectiveness(move);
-		typeMod = this.clampIntRange(typeMod, -6, 6);
-		target.getMoveHitData(move).typeMod = typeMod;
-		if (typeMod > 0) {
-			if (!suppressMessages) this.add('-supereffective', target);
-
-			for (let i = 0; i < typeMod; i++) {
-				baseDamage *= 2;
-			}
-		}
-		if (typeMod < 0) {
-			if (!suppressMessages) this.add('-resisted', target);
-
-			for (let i = 0; i > typeMod; i--) {
-				baseDamage = tr(baseDamage / 2);
-			}
-		}
-
-		if (isCrit && !suppressMessages) this.add('-crit', target);
-
-		if (pokemon.status === 'brn' && move.category === 'Physical' && !pokemon.hasAbility('guts')) {
-			if (this.gen < 6 || move.id !== 'facade') {
-				baseDamage = this.modify(baseDamage, 0.5);
-			}
-		}
-
-		if (pokemon.status === 'frz' && pokemon.statusData.frostbite && move.category === 'Special') { // the only changed section
-			baseDamage = this.modify(baseDamage, 0.5);
-		}
-
-		// Generation 5, but nothing later, sets damage to 1 before the final damage modifiers
-		if (this.gen === 5 && !baseDamage) baseDamage = 1;
-
-		// Final modifier. Modifiers that modify damage after min damage check, such as Life Orb.
-		baseDamage = this.runEvent('ModifyDamage', pokemon, target, move, baseDamage);
-
-		if (move.isZOrMaxPowered && target.getMoveHitData(move).zBrokeProtect) {
-			baseDamage = this.modify(baseDamage, 0.25);
-			this.add('-zbroken', target);
-		}
-
-		// Generation 6-7 moves the check for minimum 1 damage after the final modifier...
-		if (this.gen !== 5 && !baseDamage) return 1;
-
-		// ...but 16-bit truncation happens even later, and can truncate to 0
-		return tr(baseDamage, 16);
 	},
 
 	// MnM4A scripts
@@ -956,19 +648,19 @@ export const Scripts: ModdedBattleScriptsData = {
 		const item = pokemon.getItem();
 		if (item.megaStone) {
 			if (item.megaStone === pokemon.baseSpecies.name) return null;
-			else if (item.name === "Lycanite" && pokemon.baseSpecies.name === "Lycanroc-Midnight") return "Lycanroc-Midnight-Mega";
-			else if (item.name === "Lycanite" && pokemon.baseSpecies.name === "Lycanroc-Dusk") return "Lycanroc-Dusk-Mega";
-			else if (item.name === "Slowkinite" && pokemon.baseSpecies.name === "Slowking-Galar") return "Slowking-Galar-Mega";
-			else if (item.name === "Gourgeite" && pokemon.baseSpecies.name === "Gourgeist-Small") return "Gourgeist-Small-Mega";
-			else if (item.name === "Gourgeite" && pokemon.baseSpecies.name === "Gourgeist-Large") return "Gourgeist-Large-Mega";
-			else if (item.name === "Gourgeite" && pokemon.baseSpecies.name === "Gourgeist-Super") return "Gourgeist-Super-Mega";
-			else if (item.name === "Reginite" && pokemon.baseSpecies.name === "Regice") return "Regice-Mega";
-			else if (item.name === "Reginite" && pokemon.baseSpecies.name === "Registeel") return "Registeel-Mega";
-			else if (item.name === "Meowsticite" && pokemon.baseSpecies.name === "Meowstic-F") return "Meowstic-F-Mega";
-			else if (item.name === "Sawsbuckite" && pokemon.baseSpecies.id === "sawsbucksummer") return "Sawsbuck-Summer-Mega";
-			else if (item.name === "Sawsbuckite" && pokemon.baseSpecies.id === "sawsbuckautumn") return "Sawsbuck-Autumn-Mega";
-			else if (item.name === "Sawsbuckite" && pokemon.baseSpecies.id === "sawsbuckwinter") return "Sawsbuck-Winter-Mega";
-			else if (item.name === "Toxtricitite" && pokemon.baseSpecies.name === "Toxtricity-Low-Key") return "Toxtricity-Low-Key-Mega";
+			else if (item.name === "Lycanite" && pokemon.species.name === "Lycanroc-Midnight") return "Lycanroc-Midnight-Mega";
+			else if (item.name === "Lycanite" && pokemon.species.name === "Lycanroc-Dusk") return "Lycanroc-Dusk-Mega";
+			else if (item.name === "Slowkinite" && pokemon.species.name === "Slowking-Galar") return "Slowking-Galar-Mega";
+			else if (item.name === "Gourgeite" && pokemon.species.name === "Gourgeist-Small") return "Gourgeist-Small-Mega";
+			else if (item.name === "Gourgeite" && pokemon.species.name === "Gourgeist-Large") return "Gourgeist-Large-Mega";
+			else if (item.name === "Gourgeite" && pokemon.species.name === "Gourgeist-Super") return "Gourgeist-Super-Mega";
+			else if (item.name === "Reginite" && pokemon.species.name === "Regice") return "Regice-Mega";
+			else if (item.name === "Reginite" && pokemon.species.name === "Registeel") return "Registeel-Mega";
+			else if (item.name === "Meowsticite" && pokemon.species.name === "Meowstic-F") return "Meowstic-F-Mega";
+			else if (item.name === "Sawsbuckite" && pokemon.species.id === "sawsbucksummer") return "Sawsbuck-Summer-Mega";
+			else if (item.name === "Sawsbuckite" && pokemon.species.id === "sawsbuckautumn") return "Sawsbuck-Autumn-Mega";
+			else if (item.name === "Sawsbuckite" && pokemon.species.id === "sawsbuckwinter") return "Sawsbuck-Winter-Mega";
+			else if (item.name === "Toxtricitite" && pokemon.species.name === "Toxtricity-Low-Key") return "Toxtricity-Low-Key-Mega";
 			else return item.megaStone;
 		} else {
 			return null;
@@ -976,9 +668,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	},
 	runMegaEvo(pokemon) {
 		if (pokemon.species.isMega) return false;
-		if (pokemon.illusion) {
-			this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityData, pokemon);
-		}
+		if (pokemon.illusion) this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
 
 		// @ts-ignore
 		const species: Species = this.getMixedSpecies(pokemon.species, pokemon.canMegaEvo);
