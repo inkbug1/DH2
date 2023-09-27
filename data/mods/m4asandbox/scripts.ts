@@ -5,42 +5,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		customTiers: ['April Fools', 'Tourbanned', 'Tier 1 Mega', 'Tier 1', 'Tier 2 Mega', 'Tier 2', 'Tier 3 Mega', 'Tier 3', 'Tier 4 Mega', 'Tier 4', 'Uncommon Mega', 'Uncommon', 'Undecided', 'Underrated'],
 	},
 	// SANDBOX CONTENT STARTS HERE
+	// MnM4A
 	init() {
-		for (const id in this.dataCache.Pokedex) {
-			const pokemon = this.dataCache.Pokedex[id];
-			if (pokemon.movepoolAdditions) {
-				for (const move of pokemon.movepoolAdditions) {
-					this.modData('Learnsets', this.toID(id)).learnset[this.toID(move)] = ["8M"];
-				}
-			}
-
-			// generating Megas
-			if (pokemon && pokemon.sandboxmega) {
-				const newMega = this.dataCache.Pokedex[pokemon.sandboxmega] = {name: pokemon.megaName};
-
-				pokemon.otherFormes = pokemon.otherFormes ? pokemon.otherFormes.concat([newMega.name]) : [pokemon.megaName];
-				pokemon.formeOrder = pokemon.formeOrder ? pokemon.formeOrder.concat([newMega.name]) : [pokemon.name, pokemon.megaName];
-
-				newMega.num = pokemon.num;
-				newMega.baseSpecies = pokemon.name;
-				newMega.forme = "Mega";
-
-				newMega.types = pokemon.megaType || pokemon.types;
-				newMega.abilities = pokemon.megaAbility || pokemon.abilities;
-				newMega.baseStats = pokemon.megaStats || pokemon.baseStats;
-				newMega.heightm = pokemon.megaHeightm || pokemon.heightm;
-				newMega.weightkg = pokemon.megaWeightkg || pokemon.weightkg;
-				newMega.eggGroups = pokemon.eggGroups;
-				newMega.color = pokemon.megaColor || pokemon.color;
-				newMega.battleOnly = pokemon.name; // just in case
-
-				newMega.creator = pokemon.megaCreator || null;
-				newMega.requiredItem = pokemon.megaStone || null;
-				this.modData('FormatsData', pokemon.sandboxmega).tier = "April Fools";
-			}
-		}
-
-		// MnM4A
 		for (const i in this.data.Items) {
 			if (!this.data.Items[i].megaStone) continue;
 			this.modData('Items', i).onTakeItem = false;
@@ -48,9 +14,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (this.modData('FormatsData', id)) this.modData('FormatsData', id).isNonstandard = null;
 		}
 	},
-
-	// MnM4A scripts
-
 	canMegaEvo(pokemon) {
 		if (pokemon.species.isMega) return null;
 
