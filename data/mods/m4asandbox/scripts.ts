@@ -40,7 +40,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	},
 	runMegaEvo(pokemon) {
 		if (pokemon.species.isMega) return false;
-		if (pokemon.illusion) this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
+		if (pokemon.illusion) this.battle.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
 
 		// @ts-ignore
 		const species: Species = this.getMixedSpecies(pokemon.species, pokemon.canMegaEvo);
