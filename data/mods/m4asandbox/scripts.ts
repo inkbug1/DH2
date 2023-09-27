@@ -14,6 +14,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (this.modData('FormatsData', id)) this.modData('FormatsData', id).isNonstandard = null;
 		}
 	},
+	actions: {
 	canMegaEvo(pokemon) {
 		if (pokemon.species.isMega) return null;
 
@@ -167,6 +168,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		if (deltas.isMega) species.isMega = true;
 		species.deltas = deltas; // preserving deltas for potential form change compatibility
 		return species;
+	},
 	},
 
 };
