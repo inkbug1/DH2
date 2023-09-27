@@ -136,69 +136,27 @@ export const Scripts: ModdedBattleScriptsData = {
 		) {
 			return altForme.name;
 		}
-		if (item.name === "Lycanite" && pokemon.baseSpecies.name === "Lycanroc-Midnight") {
-			return "Lycanroc-Midnight-Mega";
-		}
-		if (item.name === "Lycanite" && pokemon.baseSpecies.name === "Lycanroc-Dusk") {
-			return "Lycanroc-Dusk-Mega";
-		}
-		if (item.name === "Raichunite" && pokemon.baseSpecies.name === "Raichu-Alola") {
-			return null;
-		}
-		if (item.name === "Slowbronite" && pokemon.baseSpecies.name === "Slowbro-Galar") {
-			return null;
-		}
-		if (item.name === "Slowkinite" && pokemon.baseSpecies.name === "Slowking-Galar") {
-			return "Slowking-Galar-Mega";
-		}
-		if (item.name === "Gourgeite" && pokemon.baseSpecies.name === "Gourgeist-Small") {
-			return "Gourgeist-Small-Mega";
-		}
-		if (item.name === "Gourgeite" && pokemon.baseSpecies.name === "Gourgeist-Large") {
-			return "Gourgeist-Large-Mega";
-		}
-		if (item.name === "Gourgeite" && pokemon.baseSpecies.name === "Gourgeist-Super") {
-			return "Gourgeist-Super-Mega";
-		}
-		if (item.name === "Reginite" && pokemon.baseSpecies.name === "Regice") {
-			return "Regice-Mega";
-		}
-		if (item.name === "Reginite" && pokemon.baseSpecies.name === "Registeel") {
-			return "Registeel-Mega";
-		}
-		if (item.name === "Meowsticite" && pokemon.baseSpecies.name === "Meowstic-F") {
-			return "Meowstic-F-Mega";
-		}
-		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.id === "sawsbucksummer") {
-			return "Sawsbuck-Summer-Mega";
-		}
-		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.id === "sawsbuckautumn") {
-			return "Sawsbuck-Autumn-Mega";
-		}
-		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.id === "sawsbuckwinter") {
-			return "Sawsbuck-Winter-Mega";
-		}
-		if (item.name === "Toxtricitite" && pokemon.baseSpecies.name === "Toxtricity-Low-Key") {
-			return "Toxtricity-Low-Key-Mega";
-		}
-		if (item.name === "Ninetalesite" && pokemon.baseSpecies.name === "Ninetales") {
-			return null;
-		}
-		if (item.name === "Dugtrionite" && pokemon.baseSpecies.name === "Dugtrio-Alola") {
-			return null;
-		}
-		if (item.name === "Rapidashinite" && pokemon.baseSpecies.name === "Rapidash-Galar") {
-			return null;
-		}
-		if (item.name === "Wormadamite" && (pokemon.baseSpecies.name === "Wormadam" || pokemon.baseSpecies.name === "Wormadam-Trash")) {
-			return null;
-		}
-		if (pokemon.baseSpecies.name === "Pichu") {
-			return null;
-		}
-		if (pokemon.baseSpecies.name === "Floette") {
-			return null;
-		}
+		if (item.name === "Lycanite" && pokemon.species.name === "Lycanroc-Midnight") return "Lycanroc-Midnight-Mega";
+		if (item.name === "Lycanite" && pokemon.species.name === "Lycanroc-Dusk") return "Lycanroc-Dusk-Mega";
+		if (item.name === "Raichunite" && pokemon.species.name === "Raichu-Alola") return null;
+		if (item.name === "Slowbronite" && pokemon.species.name === "Slowbro-Galar") return null;
+		if (item.name === "Slowkinite" && pokemon.species.name === "Slowking-Galar") return "Slowking-Galar-Mega";
+		if (item.name === "Gourgeite" && pokemon.species.name === "Gourgeist-Small") return "Gourgeist-Small-Mega";
+		if (item.name === "Gourgeite" && pokemon.species.name === "Gourgeist-Large") return "Gourgeist-Large-Mega";
+		if (item.name === "Gourgeite" && pokemon.species.name === "Gourgeist-Super") return "Gourgeist-Super-Mega";
+		if (item.name === "Reginite" && pokemon.species.name === "Regice") return "Regice-Mega";
+		if (item.name === "Reginite" && pokemon.species.name === "Registeel") return "Registeel-Mega";
+		if (item.name === "Meowsticite" && pokemon.species.name === "Meowstic-F") return "Meowstic-F-Mega";
+		if (item.name === "Sawsbuckite" && pokemon.species.id === "sawsbucksummer") return "Sawsbuck-Summer-Mega";
+		if (item.name === "Sawsbuckite" && pokemon.species.id === "sawsbuckautumn") return "Sawsbuck-Autumn-Mega";
+		if (item.name === "Sawsbuckite" && pokemon.species.id === "sawsbuckwinter") return "Sawsbuck-Winter-Mega";
+		if (item.name === "Toxtricitite" && pokemon.species.name === "Toxtricity-Low-Key") return "Toxtricity-Low-Key-Mega";
+		if (item.name === "Ninetalesite" && pokemon.species.name === "Ninetales") return null;
+		if (item.name === "Dugtrionite" && pokemon.species.name === "Dugtrio-Alola") return null;
+		if (item.name === "Rapidashinite" && pokemon.species.name === "Rapidash-Galar") return null;
+		if (item.name === "Wormadamite" && (pokemon.species.name === "Wormadam" || pokemon.species.name === "Wormadam-Trash")) return null;
+		if (pokemon.species.name === "Pichu") return null;
+		if (pokemon.species.name.startsWith('Floette')) return null;
 		if (item.megaEvolves !== pokemon.baseSpecies.name || item.megaStone === pokemon.species.name) {
 			return null;
 		}
@@ -208,9 +166,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		const speciesid = pokemon.canMegaEvo || pokemon.canUltraBurst;
 		if (!speciesid) return false;
 
-		if (pokemon.illusion) { // only change
-			this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityData, pokemon);
-		}
+		if (pokemon.illusion) this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
 		pokemon.formeChange(speciesid, pokemon.getItem(), true);
 
 		// Limit one mega evolution
@@ -520,7 +476,7 @@ pokemon: {
 		this.abilityState = {id: ability.id, target: this};
 		if (ability.id && this.battle.gen > 3 &&
 			(!isTransform || oldAbility !== ability.id || this.battle.gen <= 4)) {
-			this.battle.singleEvent('PreStart', ability, this.abilityData, this, source); // only change
+			this.battle.singleEvent('PreStart', ability, this.abilityState, this, source); // only change
 			this.battle.singleEvent('Start', ability, this.abilityState, this, source);
 		}
 		this.abilityOrder = this.battle.abilityOrder++;
