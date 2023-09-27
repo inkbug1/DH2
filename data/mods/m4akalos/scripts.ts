@@ -243,8 +243,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.apparentType = this.terastallized;
 			}
 			return true;
-		}
-	},
+		},
 	setAbility(ability: string | Ability, source?: Pokemon | null, isFromFormeChange = false, isTransform = false) {
 		if (!this.hp) return false;
 		if (typeof ability === 'string') ability = this.battle.dex.abilities.get(ability);
@@ -270,5 +269,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 		this.abilityOrder = this.battle.abilityOrder++;
 		return oldAbility;
+	},
 	},
 };
