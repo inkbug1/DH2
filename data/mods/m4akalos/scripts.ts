@@ -39,6 +39,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (!this.modData('FormatsData', pokemon.mega)) this.data.FormatsData[pokemon.mega] = {tier: "Mega"};
 		}
 	},
+
+	actions: {
 	canMegaEvo(pokemon) { // modded for forms
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.species.get(pokemon.baseSpecies.otherFormes[0]);
 		const item = pokemon.getItem();
@@ -49,13 +51,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return altForme.name;
 		}
 		if (item.name === "Wormadamite") {
-			if (pokemon.species.name === "Wormadam-Sandy") {
-				 return "Wormadam-Sandy-Mega";
-			} else return null;
+			if (pokemon.species.name === "Wormadam-Sandy") return "Wormadam-Sandy-Mega";
+			else return null;
 		}
 		if (item.name === "Hoopanite" && pokemon.species.name === "Hoopa-Unbound") return null;
 		if (item.megaEvolves !== pokemon.species.name || item.megaStone === pokemon.species.name) return null;
 		return item.megaStone;
+	},
 	},
 
 			boost(
