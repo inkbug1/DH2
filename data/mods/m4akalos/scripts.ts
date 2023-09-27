@@ -219,6 +219,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					this.battle.add('-formechange', this, species.name, message, `[from] ability: ${source.name}`);
 				} else if (source.id === 'hyperspacehole') {
 					this.battle.add('-formechange', this, this.illusion ? this.illusion.species.name : species.name, '[silent]');
+					this.battle.add('replace', this, this.details);
 				} else {
 					this.battle.add('-formechange', this, this.illusion ? this.illusion.species.name : species.name, message);
 				}
