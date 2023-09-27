@@ -145,12 +145,19 @@ export const Scripts: ModdedBattleScriptsData = {
 		if (item.name === "Sawsbuckite" && pokemon.species.id === "sawsbuckautumn") return "Sawsbuck-Autumn-Mega";
 		if (item.name === "Sawsbuckite" && pokemon.species.id === "sawsbuckwinter") return "Sawsbuck-Winter-Mega";
 		if (item.name === "Toxtricitite" && pokemon.species.name === "Toxtricity-Low-Key") return "Toxtricity-Low-Key-Mega";
-		if (item.name === "Ninetalesite" && pokemon.species.name === "Ninetales") return null;
+		if (item.name === "Ninetalesite") {
+			if (pokemon.species.name === "Ninetales-Alola") {
+				 return "Ninetales-Alola-Mega";
+			} else return null;
+		}
 		if (item.name === "Dugtrionite" && pokemon.species.name === "Dugtrio-Alola") return null;
 		if (item.name === "Rapidashinite" && pokemon.species.name === "Rapidash-Galar") return null;
-		if (item.name === "Wormadamite" && (pokemon.species.name === "Wormadam" || pokemon.species.name === "Wormadam-Trash")) return null;
-		if (pokemon.species.name === "Pichu") return null;
-		if (pokemon.species.name.startsWith('Floette')) return null;
+		if (item.name === "Wormadamite") {
+			if (pokemon.species.name === "Wormadam-Sandy") {
+				 return "Wormadam-Sandy-Mega";
+			} else return null;
+		}
+		if (item.name === "Hoopanite" && pokemon.species.name === "Hoopa-Unbound") return null;
 		if (item.megaEvolves !== pokemon.species.name || item.megaStone === pokemon.species.name) {
 			return null;
 		}
