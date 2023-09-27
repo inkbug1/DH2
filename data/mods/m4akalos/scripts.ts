@@ -259,7 +259,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.abilityState = {id: ability.id, target: this};
 		if (ability.id && this.battle.gen > 3 &&
 			(!isTransform || oldAbility !== ability.id || this.battle.gen <= 4)) {
-			this.battle.singleEvent('PreStart', ability, this.abilityData, this, source); // only change
+			this.battle.singleEvent('PreStart', ability, this.abilityState, this, source); // only change
 			this.battle.singleEvent('Start', ability, this.abilityState, this, source);
 		}
 		this.abilityOrder = this.battle.abilityOrder++;
