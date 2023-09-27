@@ -160,7 +160,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		const speciesid = pokemon.canMegaEvo || pokemon.canUltraBurst;
 		if (!speciesid) return false;
 
-		if (pokemon.illusion) this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
+		if (pokemon.illusion) this.battle.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
 		pokemon.formeChange(speciesid, pokemon.getItem(), true);
 
 		// Limit one mega evolution
