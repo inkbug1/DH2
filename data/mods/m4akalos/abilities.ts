@@ -230,7 +230,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 
 				const natures = this.dex.natures.all();
 				source.nature = this.sample(natures).name;
-				
+        
 				this.add('-message', `It's ${source.name}!`);
 
 				source.volatiles['hyperspacemayhem'].userBackup = userBackup;
@@ -266,8 +266,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				//Practically, it would never be shiny twice in a row, but Iiiiiii this is fine.
 				//source.set.shiny = userBackup.shiny;
 				source.shiny = userBackup.shiny;
-				
-				
+
 				// silently restore boosts
 				if (hyperspaceLookup[summon].move !== "Geomancy") {
 					const resetStats: SparseBoostsTable = {};
