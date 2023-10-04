@@ -1370,9 +1370,98 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	//=================================================================================================================================================
 	//The Year Of Our Lord 2023
 	//=================================================================================================================================================
+	/*
+	: {
+		name: "",
+		copyData: "",
+		
+		types: [],
+		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
+		abilities: {0: "", 1: "", H: ""},
+		movepoolAdditions: [],
+		movepoolDeletions: [],
+		
+		creator: "",
+		modOrigin: "Halloween 2023",
+	},
+	*/
+	passmid: {
+		name: "Passmid",
+		copyData: "Passimian",
+		
+		types: ["Bug", "Steel"],
+		baseStats: {hp: 100, atk: 120, def: 90, spa: 40, spd: 60, spe: 80},
+		abilities: {0: "Reciever", H: "Prankster"},
+		movepoolAdditions: ["assist", "camouflage", "jumpshot"],
+		
+		creator: "Paulluxx",
+		modOrigin: "Halloween 2023",
+	},
+	cindrickit: {
+		name: "Cindrickit",
+		copyData: "Cinderace",
+		
+		types: ["Bug", "Fire"],
+		baseStats: {hp: 80, atk: 116, def: 75, spa: 65, spd: 75, spe: 119},
+		abilities: {0: "Swarm", H: "Protean"},
+		movepoolAdditions: ["slamdunk", "jumpshot"],
+		
+		creator: "Paulluxx",
+		modOrigin: "Halloween 2023",
+	},
+	dubider: {
+		name: "Dubider",
+		copyData: "Dubwool",
+		
+		types: ["Bug", "Normal"],
+		baseStats: {hp: 72, atk: 80, def: 100, spa: 60, spd: 90, spe: 88},
+		abilities: {0: "Fluffy", 1: "Steadfast", H: "Wind Rider"},
+		movepoolAdditions: ["assist", "slamdunk", "jumpshot", "lobpass"],
+		
+		creator: "Paulluxx",
+		modOrigin: "Halloween 2023",
+	},
+	harineura: {
+		name: "Harineura",
+		copyData: "Hariyama",
+		
+		types: ["Bug", "Dragon"],
+		baseStats: {hp: 144, atk: 120, def: 60, spa: 40, spd: 60, spe: 50},
+		abilities: {0: "Thick Fat", 1: "Stalwart", H: "Sheer Force"},
+		movepoolAdditions: ["slamdunk", "jumpshot", "lobpass"],
+		
+		creator: "Paulluxx",
+		modOrigin: "Halloween 2023",
+	},
+	incinimite: {
+		name: "Incinimite",
+		copyData: "Incineroar",
+		
+		types: ["Bug", "Psychic"],
+		baseStats: {hp: 95, atk: 115, def: 90, spa: 80, spd: 90, spe: 60},
+		abilities: {0: "Swarm", H: "Intimidate"},
+		movepoolAdditions: ["slamdunk", "lobpass"],
+		
+		creator: "Paulluxx",
+		modOrigin: "Halloween 2023",
+	},
 	
+	bloonket: {
+		name: "Bloonket",
+		
+		types: ["Ghost"],
+		baseStats: {hp: 82, atk: 80, def: 112, spa: 80, spd: 98, spe: 44},
+		abilities: {0: "Illusion", H: "Friend Guard"},
+		//learnsets.ts
+		heightm: 2,
+		weightkg: 0.1,
+		color: "White",
+		
+		creator: "inkbug",
+		modOrigin: "Halloween 2023",
+	},
 	
-	//Evo
+	//Evo===================================================
 	psiamat: {
 		name: "Psiamat",
 		copyData: "Meowstic",//Phione-like ""adjacent""; no evolutionary connection
