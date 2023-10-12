@@ -76,10 +76,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					shared += 'g'; // force green HP bar
 				}
 			}
-			if ('banefultransformation' in this.volatiles) { // modded section
-				secret = `100/100`;
-				shared = `100/100`;
-			}
+			if ('banefultransformation' in this.volatiles) shared = `100/100g`; // only modded line
 			if (this.status) {
 				secret += ` ${this.status}`;
 				shared += ` ${this.status}`;
