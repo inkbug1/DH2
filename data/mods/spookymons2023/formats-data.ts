@@ -25,6 +25,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	// jazz's
 	tarothwak: { tier: "Spooky" },
+	murkrow: { tier: "Spooky (NFE)" }, // canon
+	honchkrow: { tier: "Spooky" }, // canon
 	murkraft: { tier: "Spooky" },
 
 	// 2023 CROSSOVER CONTENT
@@ -42,10 +44,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	froslass: { tier: "Spooky" },
 	froslasstheatrical: { tier: "Spooky" }, // from Evo
 	froslasstheatricalunmasked: { tier: "Illegal" }, // battle-only
-
-	murkrow: { tier: "Spooky (NFE)" },
-	honchkrow: { tier: "Spooky" },
-	honchkrowmega: { tier: "Spooky" }, // from M4A
 
 
 
@@ -211,36 +209,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	klefki: { tier: "Spooky" },
 	klefkigalar: { tier: "Spooky" },
-	klefkigalarrevealed: { tier: "Illegal" }, //battle-only
-
-	// M4A STUFF
-
-	poochyena: { tier: "Spooky (NFE)" },
-	mightyena: { tier: "Spooky" },
-	mightyenamega: { tier: "Spooky" },
-
-	zigzagoon: { tier: "Spooky (NFE)" },
-	zigzagoongalar: { tier: "Spooky (NFE)" },
-	linoone: { tier: "Spooky" }, // is it really that spooky?
-	linoonegalar: { tier: "Spooky (NFE)" },
-	obstagoon: { tier: "Spooky" },
-	obstagoonmega: { tier: "Spooky" },
-
-	litwick: { tier: "Spooky (NFE)" },
-	lampent: { tier: "Spooky (NFE)" },
-	chandelure: { tier: "Spooky" },
-	chandeluremega: { tier: "Spooky" },
-
-	fennekin: { tier: "Spooky (NFE)" },
-	braixen: { tier: "Spooky (NFE)" },
-	delphox: { tier: "Spooky" },
-	delphoxmega: { tier: "Spooky" },
-
-	misdreavus: { tier: "Spooky (NFE)" },
-	mismagius: { tier: "Spooky" },
-	mismagiusmega: { tier: "Spooky" },
-
-	noivernmega: { tier: "Spooky" }, // other two stages are under Evo
+	klefkigalarrevealed: { tier: "Illegal" }, // battle-only
 
 	// CANON
 
@@ -297,6 +266,20 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	woobat: { tier: "Spooky (NFE)" },
 	swoobat: { tier: "Spooky" },
+
+	poochyena: { tier: "Spooky (NFE)" },
+	mightyena: { tier: "Spooky" },
+
+	litwick: { tier: "Spooky (NFE)" },
+	lampent: { tier: "Spooky (NFE)" },
+	chandelure: { tier: "Spooky" },
+
+	fennekin: { tier: "Spooky (NFE)" },
+	braixen: { tier: "Spooky (NFE)" },
+	delphox: { tier: "Spooky" },
+
+	misdreavus: { tier: "Spooky (NFE)" },
+	mismagius: { tier: "Spooky" },
 
 	pumpkaboo: { tier: "Spooky (NFE)" },
 	pumpkaboosmall: { tier: "Spooky (NFE)" },
