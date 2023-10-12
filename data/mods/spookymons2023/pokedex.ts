@@ -4,7 +4,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	wolfsbrain: {
 		copyData: "Oddish", // arbitrary for testing
-		name: "Plaguicate",
+		name: "Wolfsbrain",
 		types: ["Grass", "Psychic"],
 		baseStats: {hp: 60, atk: 60, def: 85, spa: 85, spd: 75, spe: 111},
 		abilities: {0: "Neurotoxin"},
