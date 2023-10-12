@@ -2094,6 +2094,43 @@ export const Formats: FormatList = [
 		unbanlist: ['Orchile', 'Dolphena', 'Scalaron', 'Rantler', 'Cobracotta', 'Albatrygon', 'Electangle', 'Torgeist', 'Platypad', 'Soleron', 'Nunopod', 'Zeploom', 'Brawnkey', 'Salamalix', 'Cinnastar', "Muab'Boa", 'Volvolpa', 'Harzodia', 'Cyllindrake', 'Kodokai', 'Jaegorm', 'Jaegorm-Collective', 'Faerenheit', 'Cellsius', 'Kelven', 'Salaos', 'Morndos', 'Pythos', 'Quadringo', 'Corundell', 'Flocura' ],
 	},
 	{
+		name: "Spookymons 2022 (2023 Edition)",
+		desc: [
+			`<b>Spookymons 2022</b> (2023 Edition): the glorious return of the incredibly silly annual Halloween format! Brought to you by the Evo gang`,
+		],
+		ruleset: ['Standard NatDex', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'], // we wish we could allow Tera! but we have Wonder Guard users...
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (template.tier !== 'Spooky' && template.tier !== 'Spooky (NFE)') {
+					return [set.species + ' is not spooky enough! Or maybe we forgot about it. Either way, it's not allowed right now!'];
+				}
+			}
+		},
+		mod: 'spookymons2023',
+	},
+	{
+		name: "Spookymons 2022 (2023 Edition) VGC",
+		desc: [
+			`<b>Spookymons 2022</b> (2023 Edition): the glorious return of the incredibly silly annual Halloween format! Brought to you by the Evo gang`,
+		],
+		gameType: 'doubles',
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', '+Unobtainable', '+Past', 'Dynamax Clause', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (template.tier !== 'Spooky' && template.tier !== 'Spooky (NFE)') {
+					return [set.species + ' is not spooky enough! Or maybe we forgot about it. Either way, it's not allowed right now!'];
+				}
+			}
+		},
+		mod: 'spookymons2023',
+	},
+	{
 		name: "[Gen 9] Super Types OU",
 		desc: "The Super Type mechanic from Scootopia, only it's applied to current gen 9 OU.",
 		threads: [
