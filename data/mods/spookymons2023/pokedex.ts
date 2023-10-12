@@ -1,0 +1,69 @@
+export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
+
+	// TEST CONTENT
+
+	wolfsbrain: {
+		copyData: "Oddish", // arbitrary for testing
+		name: "Plaguicate",
+		types: ["Grass", "Psychic"],
+		baseStats: {hp: 60, atk: 60, def: 85, spa: 85, spd: 75, spe: 111},
+		abilities: {0: "Neurotoxin"},
+		movepoolAdditions: ["banefultransformation"], // for testing
+		heightm: 0.9,
+		weightkg: 13,
+		color: "Purple",
+		creator: "Hematite",
+	},
+
+	calyrex: {
+		inherit: true,
+		otherFormes: ["Calyrex-Ice", "Calyrex-Shadow", "Calyrex-Unova"],
+		formeOrder: ["Calyrex", "Calyrex-Ice", "Calyrex-Shadow", "Calyrex-Unova"],
+	},
+	calyrexunova: {
+		name: "Calyrex-Unova",
+		baseSpecies: "Calyrex",
+		forme: "Unova",
+		copyData: "Calyrex",
+		types: ["Fire", "Ghost"],
+		baseStats: {hp: 80, atk: 80, def: 80, spa: 80, spd: 80, spe: 100},
+		abilities: {0: "Intimidate"},
+		movepoolAdditions: [ // a bit haphazard sorry
+			"pumpkinspicemix", "ragepowder", "fireblast", "firespin", "flamecharge", "flamethrower", "heatwave", "overheat", "willowisp",
+			"confuseray", "hex", "nightshade", "shadowball"
+		],
+		movepoolDeletions: ["agility", "calmmind", "growth", "imprison", "storedpower", "synthesis"],
+		creator: "Hematite",
+	},
+
+	starmie: {
+		inherit: true,
+		otherFormes: ["Starmie-Gemini", "Starmie-Gemini-Risen"],
+		formeOrder: ["Starmie", "Starmie-Gemini", "Starmie-Gemini-Risen"],
+	},
+	starmiegemini: {
+		name: "Starmie-Gemini",
+		baseSpecies: "Starmie",
+		forme: "Gemini",
+		copyData: "Starmie",
+		baseStats: {hp: 115, atk: 100, def: 85, spa: 100, spd: 85, spe: 60},
+		abilities: {0: "Divide"},
+		movepoolAdditions: ["geminilaser", "painsplit"],
+		movepoolDeletions: ["recover"],
+		creator: "Hematite",
+	},
+	starmiegeminirisen: {
+		name: "Starmie-Gemini-Risen",
+		baseSpecies: "Starmie",
+		forme: "Gemini-Risen",
+		copyData: "Starmie",
+		types: ["Water", "Ghost"],
+		baseStats: {hp: 60, atk: 100, def: 85, spa: 100, spd: 85, spe: 115},
+		abilities: {0: "Divide"},
+		movepoolAdditions: ["geminilaser", "painsplit"],
+		movepoolDeletions: ["recover"],
+		battleOnly: "Starmie-Gemini",
+		creator: "Hematite",
+	},
+
+};
