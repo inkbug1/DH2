@@ -1,55 +1,55 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
-  // 2023 ORIGINAL CONTENT
+	// 2023 ORIGINAL CONTENT
 
-  // Paul's
-  passmid: { tier: "Spooky" },
-  cindricket: { tier: "Spooky" },
-  dubider: { tier: "Spooky" },
-  harineura: { tier: "Spooky" },
-  incinimite: { tier: "Spooky" },
+	// Paul's
+	passmid: { tier: "Spooky" },
+	cindricket: { tier: "Spooky" },
+	dubider: { tier: "Spooky" },
+	harineura: { tier: "Spooky" },
+	incinimite: { tier: "Spooky" },
 
-  // Hematite's
-  wolfsbrain: { tier: "Spooky" },
-  calyrexunova: { tier: "Spooky" },
-  starmiegemini: { tier: "Spooky" },
+	// Hematite's
+	wolfsbrain: { tier: "Spooky" },
+	calyrexunova: { tier: "Spooky" },
+	starmiegemini: { tier: "Spooky" },
 
-  // ink's
-  pikachucosplay: { tier: "Spooky" },
-  pikachurockstar: { tier: "Spooky" },
-  pikachubelle: { tier: "Spooky" },
-  pikachupopstar: { tier: "Spooky" },
-  pikachuphd: { tier: "Spooky" },
-  pikachulibre: { tier: "Spooky" },
-  bloonket: { tier: "Spooky" },
+	// ink's
+	pikachucosplay: { tier: "Spooky" },
+	pikachurockstar: { tier: "Spooky" },
+	pikachubelle: { tier: "Spooky" },
+	pikachupopstar: { tier: "Spooky" },
+	pikachuphd: { tier: "Spooky" },
+	pikachulibre: { tier: "Spooky" },
+	bloonket: { tier: "Spooky" },
 
-  // jazz's
-  tarothwak: { tier: "Spooky" },
-  murkraft: { tier: "Spooky" },
+	// jazz's
+	tarothwak: { tier: "Spooky" },
+	murkraft: { tier: "Spooky" },
 
-  // 2023 CROSSOVER CONTENT
+	// 2023 CROSSOVER CONTENT
 
-  blite: { tier: "Spooky" }, // from White Tusk
+	blite: { tier: "Spooky" }, // from White Tusk
 
-  araccato: { tier: "Spooky (NFE)" }, // from DLCmons
-  arapeggio: { tier: "Spooky" }, // from DLCmons
+	araccato: { tier: "Spooky (NFE)" }, // from DLCmons
+	arapeggio: { tier: "Spooky" }, // from DLCmons
 
-  faumbral: { tier: "Spooky (NFE)" }, // from Blindsided
-  fendeerie: { tier: "Spooky" }, // from Blindsided
+	faumbral: { tier: "Spooky (NFE)" }, // from Blindsided
+	fendeerie: { tier: "Spooky" }, // from Blindsided
 
-  snorunt: { tier: "Spooky (NFE)" },
-  glalie: { tier: "Spooky" },
-  froslass: { tier: "Spooky" },
-  froslasstheatrical: { tier: "Spooky" }, // from Evo
-  froslasstheatricalunmasked: { tier: "Illegal" }, // battle-only
+	snorunt: { tier: "Spooky (NFE)" },
+	glalie: { tier: "Spooky" },
+	froslass: { tier: "Spooky" },
+	froslasstheatrical: { tier: "Spooky" }, // from Evo
+	froslasstheatricalunmasked: { tier: "Illegal" }, // battle-only
 
-  murkrow: { tier: "Spooky (NFE)" },
-  honchkrow: { tier: "Spooky" },
-  honchkrowmega: { tier: "Spooky" }, // from M4A
+	murkrow: { tier: "Spooky (NFE)" },
+	honchkrow: { tier: "Spooky" },
+	honchkrowmega: { tier: "Spooky" }, // from M4A
 
 
 
-  // 2022 CONTENT
+	// 2022 CONTENT
 
 	zubat: { tier: "Spooky (NFE)" },
 	golbat: { tier: "Spooky (NFE)" },
@@ -298,10 +298,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	woobat: { tier: "Spooky (NFE)" },
 	swoobat: { tier: "Spooky" },
 
-  pumpkaboo: { tier: "Spooky (NFE)" },
-  pumpkaboosmall: { tier: "Spooky (NFE)" },
-  pumpkaboolarge: { tier: "Spooky (NFE)" },
-  pumpkaboosuper: { tier: "Spooky (NFE)" },
+	pumpkaboo: { tier: "Spooky (NFE)" },
+	pumpkaboosmall: { tier: "Spooky (NFE)" },
+	pumpkaboolarge: { tier: "Spooky (NFE)" },
+	pumpkaboosuper: { tier: "Spooky (NFE)" },
 	gourgeist: { tier: "Spooky" },
 	gourgeistsmall: { tier: "Spooky" },
 	gourgeistlarge: { tier: "Spooky" },
