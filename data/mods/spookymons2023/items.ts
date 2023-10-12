@@ -12,12 +12,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onHit(target, source, move) {
 			if (source && source !== target && !source.item && move) {
-        let rightfulHolder = target.itemState.rightfulHolder;
+				let rightfulHolder = target.itemState.rightfulHolder;
 				const pumpkin = target.takeItem();
 				if (!pumpkin) return;
 				source.setItem(pumpkin);
-        source.itemState.rightfulHolder = rightfulHolder;
-        console.log(source.itemState.rightfulHolder); // just to confirm whether the original holder was recorded correctly
+				source.itemState.rightfulHolder = rightfulHolder;
+				console.log(source.itemState.rightfulHolder); // just to confirm whether the original holder was recorded correctly
 				this.eachEvent('PumpkinBounce', this.effect); // check for Pokémon on the field that might be affected, just in case
 				// no message for Weird Pumpkin changing hands
 			}
