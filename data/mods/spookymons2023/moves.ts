@@ -1,29 +1,26 @@
 export const Moves: {[moveid: string]: ModdedMoveData} = {
-	banefultransformation: {
-		num: -1001,
-		accuracy: 100,
-		basePower: 80,
+	banefultransformation: { // WIP
+		num: -2001, // 2023 content
+		accuracy: true,
+		basePower: 0,
 		category: "Status",
-		shortDesc: "Poisons the target if the user is statused.",
+		shortDesc: "The user summons an ally that it has turned into a monster.",
 		name: "Baneful Transformation",
-		pp: 10,
+		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {}, // can't be Snatched or anything
+		// TO DO:
+		// first use: use move.selfSwitch to pick a target, record that target
+		// subsequent uses: force to switch to the same target every time; the move fails if it can't
+		// apply Baneful Transformation to the target before switching to it
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Moonlight", target);
+			this.add('-anim', source, "Black Hole Eclipse", source); // yeah I don't even know--
+			this.add('-anim', source, "Moonlight", source);
 		},
 		condition: {
-			// add effect of Neurotoxin here after confirming it works
-/*
-			onEffectiveness(typeMod, target, type, move) {
-				if (!target || !target.illusion || move.category === 'Status' || !this.activeMove || !this.activeMove.source) return;
-				if (!target.runImmunity(move.type)) return;
-				if ((this.activeMove.source.status === 'psn' || this.activeMove.source.status === 'tox') && typeMod > 0) {
-					return 0;
-				}
-			},
-	*/
+			// I think Neurotoxin will be handled internally as a field effect,
+			// as I can't find any way to check the source of an active move from the target's point of view
 
 			// mechanical distinctions of the monster (not sure if any or all of these will be kept)
 			onTryHeal(damage, target, source, effect) { // reduce healing
@@ -54,6 +51,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 						abilities: {0: 'Neurotoxin'},
 					};
 				}
+			},
+			onSwap(pokemon) {
+				// add some fun flavor text here? maybe? maybe.
 			},
 			// tiny bit of backup to make sure the original Wolfsbrain's properties aren't messed with... should test to see if this matters!
 			onSwitchOut(pokemon) {
