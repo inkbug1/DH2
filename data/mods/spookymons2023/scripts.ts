@@ -51,4 +51,40 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 		}
 	},
+	pokemon: {
+		getHealth = () => { // modded for Baneful Transformation
+			if (!this.hp) return {side: this.side.id, secret: '0 fnt', shared: '0 fnt'};
+			let secret = `${this.hp}/${this.maxhp}`;
+			let shared;
+			const ratio = this.hp / this.maxhp;
+			if (this.battle.reportExactHP) {
+				shared = secret;
+			} else if (this.battle.reportPercentages || this.battle.gen >= 8) {
+				// HP Percentage Mod mechanics
+				let percentage = Math.ceil(ratio * 100);
+				if ((percentage === 100) && (ratio < 1.0)) {
+					percentage = 99;
+				}
+				shared = `${percentage}/100`;
+			} else {
+				// In-game accurate pixel health mechanics
+				const pixels = Math.floor(ratio * 48) || 1;
+				shared = `${pixels}/48`;
+				if ((pixels === 9) && (ratio > 0.2)) {
+					shared += 'y'; // force yellow HP bar
+				} else if ((pixels === 24) && (ratio > 0.5)) {
+					shared += 'g'; // force green HP bar
+				}
+			}
+			if ('banefultransformation' in this.volatiles) { // modded section
+				secret = `100/100`;
+				shared = `100/100`;
+			}
+			if (this.status) {
+				secret += ` ${this.status}`;
+				shared += ` ${this.status}`;
+			}
+			return {side: this.side.id, secret, shared};
+		};
+	},
 };
