@@ -34,6 +34,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		],
 		movepoolDeletions: ["agility", "calmmind", "growth", "imprison", "storedpower", "synthesis"],
 		creator: "Hematite",
+		requiredItem: "Weird Pumpkin",
 	},
 
 	starmie: {
