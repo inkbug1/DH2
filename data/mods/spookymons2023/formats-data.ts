@@ -28,6 +28,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	murkrow: { tier: "Spooky (NFE)" }, // canon
 	honchkrow: { tier: "Spooky" }, // canon
 	murkraft: { tier: "Spooky" },
+	sableyecorrupted: { tier: "Spooky" },
+	sableyecorruptedmega: { tier: "Spooky" },
+
+	// ausma's
+	finneonastralplane: { tier: "Spooky (NFE)" },
+	lumineonastralplane: { tier: "Spooky" },
 
 	// 2023 CROSSOVER CONTENT
 
