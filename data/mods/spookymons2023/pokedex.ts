@@ -29,7 +29,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 80, def: 80, spa: 80, spd: 80, spe: 100},
 		abilities: {0: "Intimidate"},
 		movepoolAdditions: [ // a bit haphazard sorry
-			"pumpkinspicemix", "ragepowder", "fireblast", "firespin", "flamecharge", "flamethrower", "heatwave", "overheat", "willowisp",
+			"pumpkinspicemix", "poltergeist", "ragepowder",
+			"fireblast", "firespin", "flamecharge", "flamethrower", "heatwave", "overheat", "willowisp",
 			"confuseray", "hex", "nightshade", "shadowball"
 		],
 		movepoolDeletions: ["agility", "calmmind", "growth", "imprison", "storedpower", "synthesis"],
