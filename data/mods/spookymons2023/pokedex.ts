@@ -43,13 +43,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	starmie: {
 		inherit: true,
-		otherFormes: ["Starmie-Gemini", "Starmie-Gemini-Risen"],
-		formeOrder: ["Starmie", "Starmie-Gemini", "Starmie-Gemini-Risen"],
+		otherFormes: ["Starmie-Fallen", "Starmie-Risen"],
+		formeOrder: ["Starmie", "Starmie-Fallen", "Starmie-Risen"],
 	},
-	starmiegemini: {
-		name: "Starmie-Gemini",
+	starmiefallen: {
+		name: "Starmie-Fallen",
 		baseSpecies: "Starmie",
-		forme: "Gemini",
+		forme: "Fallen",
 		copyData: "Starmie",
 		baseStats: {hp: 115, atk: 100, def: 85, spa: 100, spd: 85, spe: 60},
 		abilities: {0: "Divide"},
@@ -60,10 +60,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		creator: "Hematite",
 	},
-	starmiegeminirisen: {
-		name: "Starmie-Gemini-Risen",
+	starmierisen: {
+		name: "Starmie-Risen",
 		baseSpecies: "Starmie",
-		forme: "Gemini-Risen",
+		forme: "Risen",
 		copyData: "Starmie",
 		types: ["Water", "Ghost"],
 		baseStats: {hp: 60, atk: 100, def: 85, spa: 100, spd: 85, spe: 115},
@@ -73,7 +73,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		heightm: 1.1,
 		weightkg: 40,
 		color: "Purple",
-		battleOnly: "Starmie-Gemini",
+		battleOnly: "Starmie-Fallen",
 		creator: "Hematite",
 	},
 
