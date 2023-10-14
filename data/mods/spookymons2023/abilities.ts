@@ -2,7 +2,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	neurotoxin: {
 		shortDesc: "Suppresses the type advantages of moves used by poisoned attackers.",
 		onStart(source) {
-			this.add('-ability', pokemon, 'Neurotoxin');
+			this.add('-ability', source, 'Neurotoxin');
 			this.add('-message', `${(source.illusion ? source.illusion.name : source.name)} won't take super-effective damage from poisoned attackers!`);
 			this.field.addPseudoWeather('neurotoxin');
 			// not meant to be obvious that this is a pseudoWeather; it's just for coding convenience
