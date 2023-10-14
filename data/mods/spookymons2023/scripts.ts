@@ -94,7 +94,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return false;
 		}
 		let banefulTransformation = null; // these two lines modded for Baneful Transformation
-		if (sourceEffect && typeof (sourceEffect as Move).name === 'Baneful Transformation') banefulTransformation = true;
+		if (sourceEffect && (sourceEffect as Move).name === 'Baneful Transformation') banefulTransformation = true;
 
 		const side = pokemon.side;
 		if (pos >= side.active.length) {
