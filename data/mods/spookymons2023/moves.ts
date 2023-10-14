@@ -25,7 +25,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					this.hint(`Your team's Baneful Transformation is ${werewolf.name}, who has already been defeated!`, true, source.side);
 					return false;
 				}
-				if (werewolf.isActive) this.hint(`Your team's Baneful Transformation is ${werewolf.name}, who is already active!`, true, source.side);
+				if (werewolf.isActive) {
+					this.hint(`Your team's Baneful Transformation is ${werewolf.name}, who is already active!`, true, source.side);
 					return false;
 				}
 				return !!this.switchIn(werewolf, source.position, 'banefultransformation', true);
@@ -37,10 +38,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return !!this.canSwitch(source.side);
 		},
 		selfSwitch: true,
-		// TO DO:
-		// first use: use move.selfSwitch to pick a target, record that target
-		// subsequent uses: force to switch to the same target every time; the move fails if it can't
-		// apply Baneful Transformation to the target before switching to it
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Black Hole Eclipse", source); // yeah I don't even know--
