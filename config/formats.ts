@@ -2112,7 +2112,7 @@ export const Formats: FormatList = [
 		unbanlist: ['Orchile', 'Dolphena', 'Scalaron', 'Rantler', 'Cobracotta', 'Albatrygon', 'Electangle', 'Torgeist', 'Platypad', 'Soleron', 'Nunopod', 'Zeploom', 'Brawnkey', 'Salamalix', 'Cinnastar', "Muab'Boa", 'Volvolpa', 'Harzodia', 'Cyllindrake', 'Kodokai', 'Jaegorm', 'Jaegorm-Collective', 'Faerenheit', 'Cellsius', 'Kelven', 'Salaos', 'Morndos', 'Pythos', 'Quadringo', 'Corundell', 'Flocura' ],
 	},
 	{
-		name: "Spookymons 2022 (2023 Edition)",
+		name: "[Gen 9] Spookymons 2022 (2023 Edition)",
 		desc: [
 			`<b>Spookymons 2022</b> (2023 Edition): the glorious return of the incredibly silly annual Halloween format! Brought to you by the Evo gang`,
 		],
@@ -2123,14 +2123,14 @@ export const Formats: FormatList = [
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (template.tier !== 'Spooky' && template.tier !== 'Spooky (NFE)') {
-					return [set.species + ' is not spooky enough! Or maybe we forgot about it. Either way, it's not allowed right now!'];
+					return [set.species + ' is not spooky enough! Or maybe we forgot about it. Either way, it is not allowed right now!'];
 				}
 			}
 		},
 		mod: 'spookymons2023',
 	},
 	{
-		name: "Spookymons 2022 (2023 Edition) VGC",
+		name: "[Gen 9] Spookymons 2022 (2023 Edition) VGC",
 		desc: [
 			`<b>Spookymons 2022</b> (2023 Edition): the glorious return of the incredibly silly annual Halloween format! Brought to you by the Evo gang`,
 		],
@@ -2142,7 +2142,7 @@ export const Formats: FormatList = [
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (template.tier !== 'Spooky' && template.tier !== 'Spooky (NFE)') {
-					return [set.species + ' is not spooky enough! Or maybe we forgot about it. Either way, it's not allowed right now!'];
+					return [set.species + ' is not spooky enough! Or maybe we forgot about it. Either way, it is not allowed right now!'];
 				}
 			}
 		},

@@ -52,7 +52,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 	},
 	pokemon: {
-		getHealth = () => { // modded for Baneful Transformation
+		getHealth() { // modded for Baneful Transformation
 			if (!this.hp) return {side: this.side.id, secret: '0 fnt', shared: '0 fnt'};
 			let secret = `${this.hp}/${this.maxhp}`;
 			let shared;
@@ -82,7 +82,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				shared += ` ${this.status}`;
 			}
 			return {side: this.side.id, secret, shared};
-		};
+		},
 	},
 	actions: {
 
