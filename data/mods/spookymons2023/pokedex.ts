@@ -8,7 +8,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Grass", "Psychic"],
 		baseStats: {hp: 60, atk: 60, def: 85, spa: 85, spd: 75, spe: 111},
 		abilities: {0: "Neurotoxin"},
-		movepoolAdditions: ["banefultransformation"], // for testing
+		//movepoolAdditions: ["banefultransformation"], // for testing (i edited learnsets anyway cause im not allergic to it like someone i know)
 		heightm: 0.9,
 		weightkg: 13,
 		color: "Purple",
@@ -52,7 +52,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		forme: "Fallen",
 		copyData: "Starmie",
 		baseStats: {hp: 115, atk: 100, def: 85, spa: 100, spd: 85, spe: 60},
-		abilities: {0: "Divide"},
+		abilities: {0: "Divide"}, // How do you NOT call this Mitosis? I literally can't believe you
 		movepoolAdditions: ["geminilaser", "painsplit"],
 		movepoolDeletions: ["recover"],
 		heightm: 1.1,

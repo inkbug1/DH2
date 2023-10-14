@@ -1,8 +1,19 @@
 // blatantly stolen from ink asdjfhg sorry
+// lol.
+// im in here bc i need wolfsbrain to not have an empty movepool
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
-	//ok uhhh what do i have
-	//fealine, hauntarant, uhhhhhhhhh bloonket? just those two i think ill leave out my guy for now (send you somethin to paste into it later or just send another version to copy from)
-	//ssssssssorry in advance if i made any typos in this i did it real fast
+	wolfsbrain: {
+		//uhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+		learnset: {
+			banefultransformation: ["9L1"],
+			howl: ["9L1"],
+			scratch: ["9L1"],
+			splash: ["9L1"],
+			trickortreat: ["9L1"],
+			//good enough for me for these purposes lol
+		},
+	},
+	//2022 guys
 	fealine: {
 		learnset: {
 			acrobatics: ["9L1"],
@@ -197,12 +208,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			irontail: ["9L1"],
 			tackle: ["9L1"],
 			thunderbolt: ["9L1"],
-			gigaimpact: ["9L1"],
 			echoedvoice: ["9L1"],
 			hypervoice: ["9L1"],
 			bodyslam: ["9L1"],
 			mimic: ["9L1"],
-			hyperbeam: ["9L1"],
 			dig: ["9L1"],
 			aerialace: ["9L1"],
 			thunder: ["9L1"],
@@ -431,12 +440,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			irontail: ["9L1"],
 			tackle: ["9L1"],
 			thunderbolt: ["9L1"],
-			gigaimpact: ["9L1"],
 			echoedvoice: ["9L1"],
 			hypervoice: ["9L1"],
 			bodyslam: ["9L1"],
 			mimic: ["9L1"],
-			hyperbeam: ["9L1"],
 			dig: ["9L1"],
 			aerialace: ["9L1"],
 			thunder: ["9L1"],
@@ -616,7 +623,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			poisonsting: ["9L1"],
 			torment: ["9L1"],
 			darkpulse: ["9L1"],
-			snarl: ["9L1"],
 			spite: ["9L1"],
 			cut: ["9L1"],
 			drainingkiss: ["9L1"],
