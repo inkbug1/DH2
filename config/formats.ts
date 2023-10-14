@@ -2136,6 +2136,18 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'Moody', 'Shadow Tag', 'Baton Pass', 'Kyurem', 'Slowking-Base', 'Slowbro-Base'],
 	},
 	{
+		name: "[Gen 9] Transformons",
+		desc: [
+			`<p>THE <b>TRANSFORMONS</b>: THE <b>POKéBOTS</b> WAGE THEIR BATTLE TO DESTROY THE EVIL FORCES OF THE <b>DECEPTIMONS</b>!!</p><p>Pokémon have ALTERNATE FORMES, sort of like Stance Change. Unlike Stance Change, you can switch forms as often as you like, every turn!</p><p>The stats work weirdly also. I will write something about how it works if I ever finish it.</p>`
+		],
+		threads: [
+			`&bullet; If I write this here maybe I'll actually make a post in the Solomods Megathread about it.`,
+			`&bullet; Huh does the comma show up in this part too`
+		],
+		ruleset: ['Standard NatDex', 'Z-Move Clause', 'Transformons Mod'],
+		mod: 'transformons',
+	},
+	{
 		name: "[Gen 8] VGC by RNG",
 		desc: `VGC by RNG, a solomod inspired by the Gen 8 mod Random Dex, where the dex of legal Pokemon is decided randomly.`,
 		gameType: 'doubles',
