@@ -59,20 +59,28 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 
 			// should appear as a monster
 			onBeforeSwitchIn(pokemon) {
-				let fakemon: Pokemon = {};
-				for (const detail of pokemon) {
-					if (detail === 'gender' || detail === 'name' || detail === 'species') continue;
-					fakemon.detail = this.dex.deepClone(pokemon.detail);
+				const newPoke = new Pokemon(pokemon.set, pokemon.side);
+				const doNotCarryOver = [
+					'fullname', 'side', 'fainted', 'status', 'hp', 'illusion',
+					'transformed', 'position', 'isActive', 'faintQueued',
+					'subFainted', 'getHealth', 'getDetails', 'moveSlots', 'ability',
+					'species', 'gender', 'name',
+				];
+				for (const [key, value] of Object.entries(target)) {
+					if (doNotCarryOver.includes(key)) continue;
+					// @ts-ignore
+					newPoke[key] = value;
 				}
-				fakemon.gender = '';
-				fakemon.name = '???';
-				fakemon.species = {
+				newPoke.name = '???';
+				newPoke.gender = '';
+				newPoke.species = {
 					id: 'banefultransformation',
 					name: 'Baneful Transformation',
 					forme: '',
 					types: ["???"],
 				};
-				pokemon.illusion = fakemon;
+				newPoke.clearVolatile();
+				pokemon.illusion = newPoke;
 			},
 			onStart(pokemon) {
 				if (pokemon.illusion) pokemon.illusion.name = 'The Baneful Transformation'; // should still appear as ??? on the health bar, I hope!
