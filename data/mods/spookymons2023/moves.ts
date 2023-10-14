@@ -26,8 +26,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onTryHeal(damage, target, source, effect) { // reduce healing
 				if (target.illusion) return this.chainModify([2, 3]);
 			},
-			onDamage(damage, target, source, effect) { // reduce damage taken
-				if (target.illusion) return this.chainModify([2, 3]);
+			onSourceModifyDamage(damage, source, target, move) {
+				if (target.illusion && !(target.getMoveHitData(move).typeMod > 0)) { // reduce damage taken
+					return this.chainModify([2, 3]); // this might be too extreme, but we can come back to it
+				}
 			},
 			onModifySpe(spe, pokemon) { // reduce Speed
 				if (pokemon.illusion) return this.chainModify(0.5);
@@ -52,8 +54,18 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					};
 				}
 			},
-			onSwap(pokemon) {
-				// add some fun flavor text here? maybe? maybe.
+			onStart(pokemon) {
+				this.add('-message', `Grrrrrr...`);
+				// this.add(`raw|<img src="IMAGE URL HERE" height="14" width="32">`); // would be fun to add a visual here :D (but I haven't made one yet P:)
+				if (!pokemon.m.werewolfHints && pokemon.m.wolfsbane && pokemon.m.backup.name) {
+					this.hint(`This must be one of ${pokemon.m.backup.name}'s allies, but which one?`);
+					this.hint(`The Baneful Transformation's identity is a secret. It's impossible to tell what moves it uses—or even how much HP it has left!`);
+					this.hint(`The Baneful Transformation will take less damage from moves, unless they're super effective. However, its Speed and HP recovery are also reduced.`);
+					this.hint(`During this battle, ${pokemon.m.backup.name} will always summon the same Baneful Transformation. You should try to deduce its identity over the course of the battle!`);
+					pokemon.m.werewolfHints = true;
+				}
+				this.add('-ability', pokemon, 'Neurotoxin');
+				this.add('-message', `The Baneful Transformation won't take super-effective damage from poisoned attackers!`);
 			},
 			// tiny bit of backup to make sure the original Wolfsbrain's properties aren't messed with... should test to see if this matters!
 			onSwitchOut(pokemon) {
