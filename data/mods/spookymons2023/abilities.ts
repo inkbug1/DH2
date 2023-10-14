@@ -12,9 +12,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			onAnyModifyMove(move, source, target) {
 				if (source.status === 'psn' || source.status === 'tox') move.neurotoxin = true;
 			},
-			onAnyEffectiveness(typeMod, target, type, move) {
+			onEffectiveness(typeMod, target, type, move) {
 				if (target.hasAbility('neurotoxin') || target.volatiles['banefultransformation']) {
-					if (move.neurotoxin && typeMod > 0) return 0; // I hope this works
+					if (move.neurotoxin && target.getMoveHitData(move).typeMod > 0) return 0; 
 				}
 			},
 		},
