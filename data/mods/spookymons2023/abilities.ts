@@ -22,4 +22,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -2001,
 	},
+	divide: {
+		shortDesc: "Doesn't do anything yet.",
+		// doesn't do anything yet P:
+		name: "Divide",
+		rating: 4,
+		num: -2002,
+	},
 };
